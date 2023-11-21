@@ -170,11 +170,11 @@ export default async function JSONPage({
 }
 
 function codeExampleURL(path = "") {
-  const scheme = process.env.VERCEL_URL?.startsWith("localhost")
+  const scheme = process.env.DEPLOYMENT_URL?.startsWith("localhost")
     ? "http"
     : "https";
 
-  return `${scheme}://${process.env.VERCEL_URL}${path}`;
+  return `${scheme}://${process.env.DEPLOYMENT_URL}${path}`;
 }
 
 function innerEllipses(str: string, maxLength: number) {
