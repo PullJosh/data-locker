@@ -7,6 +7,10 @@ import { CodeExample } from "../../../components/CodeExample";
 import dedent from "dedent";
 import { CodeHighlight } from "../../../components/CodeHighlight";
 
+export const metadata = {
+  title: "JSON Document | Data Locker",
+};
+
 async function getDocument(id: string) {
   return await prisma.jSONDocument.findUnique({
     where: { id },
@@ -22,17 +26,17 @@ export default async function JSONPage({
   if (!document) return notFound();
 
   return (
-    <div className="max-w-3xl mx-auto px-16 py-16 prose">
+    <div className="prose py-8">
       <h1 className="mb-0">JSON Document</h1>
       <div className="mb-8">{document.id}</div>
       <div>
         <div className="flex justify-end">
           <Link href={`/json/${document.id}/api`}>View Raw ↗</Link>
         </div>
-        <div className="not-prose text-sm rounded-lg border overflow-hidden">
+        <div className="not-prose overflow-hidden rounded-lg border text-sm">
           <CodeEditor code={JSON.stringify(document.json, null, 2)} />
         </div>
-        <div className="flex justify-between text-sm mt-1">
+        <div className="mt-1 flex justify-between text-sm">
           <div>
             Created{" "}
             <time

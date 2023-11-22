@@ -2,6 +2,10 @@ import Link from "next/link";
 import prisma from "../../db";
 import { revalidatePath } from "next/cache";
 
+export const metadata = {
+  title: "Admin | Data Locker",
+};
+
 async function getJSONDocuments() {
   return await prisma.jSONDocument.findMany({
     orderBy: { createdAt: "desc" },
@@ -25,7 +29,7 @@ export default async function AdminPage() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-16 py-16 prose">
+    <div className="prose py-8">
       <h1>Admin</h1>
       <h2>JSON Documents</h2>
       <table>

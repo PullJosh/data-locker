@@ -77,7 +77,7 @@ export function CodeEditor({
   return (
     <div ref={editor}>
       {/* Simulate CodeMirror output for SSR (prevents layout shift) */}
-      <div className="flex items-stretch not-prose font-mono leading-[1.4]">
+      <div className="not-prose flex items-stretch font-mono leading-[1.4]">
         <div
           className="flex justify-start"
           style={{
@@ -90,7 +90,7 @@ export function CodeEditor({
             {new Array(code.split("\n").length).fill(null).map((_, i) => (
               <span
                 key={i}
-                className="min-w-[20px] pl-[5px] pr-[3px] mr-[30px] text-right"
+                className="mr-[30px] min-w-[20px] pl-[5px] pr-[3px] text-right"
               >
                 {i + 1}
               </span>

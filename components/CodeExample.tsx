@@ -14,7 +14,7 @@ interface TabExampleProps {
 
 export function CodeExample({ examples }: TabExampleProps) {
   return (
-    <div className="bg-gray-50 rounded-lg">
+    <div className="rounded-lg bg-gray-50">
       <Tab.Group>
         <Tab.List className="border-b px-3">
           {examples.map((example) => (
@@ -22,9 +22,9 @@ export function CodeExample({ examples }: TabExampleProps) {
               {({ selected }) => (
                 <button
                   className={classNames(
-                    "px-3 py-1 [&:not(:focus-visible)]:outline-none focus:bg-gray-100",
+                    "px-3 py-1 focus:bg-gray-100 [&:not(:focus-visible)]:outline-none",
                     {
-                      "border-b border-black -mb-px": selected,
+                      "-mb-px border-b border-black": selected,
                     },
                   )}
                 >
@@ -38,14 +38,14 @@ export function CodeExample({ examples }: TabExampleProps) {
           {examples.map((example) => (
             <Tab.Panel key={example.name} className="divide-y">
               <div className="px-3 py-2">
-                <div className="text-gray-600 uppercase text-sm font-bold bg-gray-200 table-cell px-2 py-1 rounded">
+                <div className="table-cell rounded bg-gray-200 px-2 py-1 text-sm font-bold uppercase text-gray-600">
                   Code
                 </div>
                 <div className="overflow-auto">{example.code}</div>
               </div>
               {example.output && (
                 <div className="px-3 py-2">
-                  <div className="text-gray-600 uppercase text-sm font-bold bg-gray-200 table-cell px-2 py-1 rounded">
+                  <div className="table-cell rounded bg-gray-200 px-2 py-1 text-sm font-bold uppercase text-gray-600">
                     Output
                   </div>
                   {example.output}
